@@ -37,45 +37,82 @@
         </MenuBarItem>
     </ContentPage.MenuBarItems>
 
-    
-    <ScrollView>
-        <VerticalStackLayout
+
+
+    <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
-            <ListView ItemsSource="{Binding Items}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Name}" />
-                                <Label Text="{Binding Description}" />
-                                <!-- Add more labels or controls for additional columns -->
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-
-
-
-            <Label
+        <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
+        <Button
                 x:Name="CounterBtn"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Fixed Header -->
+                <RowDefinition Height="300" />
+                <!-- Scrollable Content -->
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Row="0">
+                <ListView.Header>
+                    <Grid BackgroundColor="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*" />
+                            <ColumnDefinition Width="50*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="Name" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Text="Description" FontAttributes="Bold" />
+                        <!-- Add more labels or controls for additional columns -->
+                    </Grid>
+                </ListView.Header>
+            </ListView>
+            <ScrollView Grid.Row="1">
+                <ListView ItemsSource="{Binding Items}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Name}" />
+                                    <Label Grid.Column="1" Text="{Binding Description}" />
+                                    <!-- Add more labels or controls for additional columns -->
+
+                                </Grid>
+                                <!--<StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Description}" />
+                                -->
+                                <!-- Add more labels or controls for additional columns -->
+                                <!--
+                            </StackLayout>-->
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
+
+
+
+
+
+    </VerticalStackLayout>
+
 
 </ContentPage>
