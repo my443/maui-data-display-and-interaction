@@ -89,8 +89,11 @@
                                         <ColumnDefinition Width="50*" />
                                         <ColumnDefinition Width="50*" />
                                     </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
                                     <Label Grid.Column="0" Text="{Binding Name}" />
-                                    <Label Grid.Column="1" Text="{Binding Description}" />
+                                    <Label Grid.Column="1" Text="{Binding Description}"  />
                                     <!-- Add more labels or controls for additional columns -->
 
                                 </Grid>
